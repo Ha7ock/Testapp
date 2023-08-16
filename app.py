@@ -1,10 +1,10 @@
 
 import streamlit as st
-import altair as alt
+#import altair as alt
 
-from snowflake.snowpark import Session
-from snowflake.snowpark.functions import col
-from snowflake.snowpark import functions as f
+#from snowflake.snowpark import Session
+#from snowflake.snowpark.functions import col
+#from snowflake.snowpark import functions as f
 
 
 #import json
