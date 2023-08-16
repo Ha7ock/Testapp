@@ -14,15 +14,10 @@ def create_session_object():
         "database": "ECONOMY_DATA_ATLAS",  # optional
         "schema": "ECONOMY",  # optional
     }  
-#import json
-# import uuid
-
-# connect to Snowflake
-#with open('creds.json') as fl:
-    #connection_parameters = json.load(fl)  
 session = Session.builder.configs(connection_parameters).create()
 print(session.sql('select current_warehouse(), current_database(), current_schema()').collect()
 )
+return session
 
 st.write("# ESG Investment Analyzer :sunglasses:")
 
@@ -49,10 +44,6 @@ scoreWithRatingDf= scoreDf.withColumn('rating',
     )
 )
  
-with open ('style.css') as fcss:
-			st.markdown(f'<style>{fcss.read()}</style>', unsafe_allow_html=True)
-
-
 # selectors
 col1, col2 = st.columns([3,1])
 with col1:
