@@ -5,14 +5,24 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 from snowflake.snowpark import functions as f
 
-
-import json
+def create_session_object():
+    connection_parameters = {
+        "account": "EDNKDKE.QY45308",
+        "user": "HANOCK",
+        "password": "Jerry@9360620552",
+        "warehouse": "COMPUTE_WH",  # optional
+        "database": "ECONOMY_DATA_ATLAS",  # optional
+        "schema": "ECONOMY",  # optional
+    }  
+#import json
 # import uuid
 
 # connect to Snowflake
-with open('creds.json') as fl:
-    connection_parameters = json.load(fl)  
+#with open('creds.json') as fl:
+    #connection_parameters = json.load(fl)  
 session = Session.builder.configs(connection_parameters).create()
+print(session.sql('select current_warehouse(), current_database(), current_schema()').collect()
+)
 
 st.write("# ESG Investment Analyzer :sunglasses:")
 
